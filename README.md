@@ -1,10 +1,10 @@
-## Log Analysis Project
+## Logs Analysis Project
 Udacity Full Stack Nano Degree Project #3 
-The third project of the [Udacity Full Stack Web Developer Nanodegree Program](https://in.udacity.com/course/full-stack-web-developer-nanodegree--nd004) called "Build a Log Analysis".
+The third project of the [Udacity Full Stack Web Developer Nanodegree Program](https://in.udacity.com/course/full-stack-web-developer-nanodegree--nd004) called "Build a Logs Analysis".
 
 ## Project Overview
 
-Your task is to create a **reporting tool** that prints out reports (in simple text) 
+Your task is to create a **Reporting Tool** that prints out reports (in simple text) 
 based on the data in the database. This reporting tool is a **Python program 
 using the psycopg2 module to connect to the database.**
 
@@ -142,7 +142,7 @@ Type "help" for help.
 
 vagrant=#
 ```
-- Now Download the project database [setup file](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
+- Now Download the project database [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip).
 
 - Unzip the data to get the **newsdata.sql** file.Put the newsdata.sql file into the **vagrant directory** [live demo](https://github.com/vijju3335/Log-Activity/blob/master/images/v5.JPG).
 
@@ -188,11 +188,11 @@ vagrant@vagrant-ubuntu-trusty-64:/vagrant$
 - Run the [python file](#running-documents-locally).
 
 #### Vagrant
-- Download the vagrant setup file for **WINDOWS** [Vagrant.exe](https://www.vagrantup.com/downloads.html).
+- Download the vagrant setup file for **windows** [Vagrant.exe](https://www.vagrantup.com/downloads.html).
 These files configure the virtual machine and install all the tools needed to run this project.
 
 #### Virtual Box
-- Download the virtual box setup file for **WINDOWS** [VirtualBox.exe](https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.12-122591-Win.exe).
+- Download the virtual box setup file for **windows** [VirtualBox.exe](https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.12-122591-Win.exe).
 
 
 ## Running Documents Locally
@@ -205,9 +205,11 @@ vagrant@vagrant-ubuntu-trusty-64:/vagrant$ python fileName.py
 ## References
 
 - youtube for installation
-- [python documentaion](https://docs.python.org/2/index.html)
-- [psycopg2 documentation](http://initd.org/psycopg/docs/)
 - stack overflow to errors retriving
+- [python documentaion](https://docs.python.org/2/index.html)
+- [postgresql documentation](https://www.postgresql.org/docs/9.6/static/index.html)
+- [psycopg2 documentation](http://initd.org/psycopg/docs/)
+- [views](http://www.postgresqltutorial.com/postgresql-views/) concepts.
 
 ---
 
