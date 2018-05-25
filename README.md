@@ -197,6 +197,7 @@ These files configure the virtual machine and install all the tools needed to ru
 ```
 vagrant@vagrant-ubuntu-trusty-64:/vagrant$ python fileName.py
 ```
+see [Output](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v7.JPG)
 
 ## References
 
