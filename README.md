@@ -23,14 +23,14 @@ using the psycopg2 module to connect to the database.**
 
 For a demo, check out [Live Demo](#).
 ## Download
-The files for the project, [download](https://github.com/vijju3335/Log-Activity/archive/master.zip).
+The files for the project, [download](https://github.com/vijju3335/LogsAnalysis/archive/master.zip).
 
 ### What's included
 
 Within the download you'll find the following directories and files:
 
 ```
-Log-Analysis-master.zip/
+LogsAnalysis-master.zip/
 |
 └── LogActivity.py
 |
@@ -43,10 +43,6 @@ Log-Analysis-master.zip/
 |     └── v3.jpg
 |     |
 |     └── .....
-|
-└── newsdata.zip
-|     |
-|     └── newsdata.sql
 |
 └── README.md
 ```
@@ -81,17 +77,17 @@ This project should run on a virutal machine created using Vagrant, ToDo this, f
 
 - There are different vagrant-boxes [here](https://app.vagrantup.com/boxes/search)
 
-```D:\VM_14.0.4>vagrant init ubuntu/trusty64 ```  [live demo](https://github.com/vijju3335/Log-Activity/blob/master/images/v1.JPG) 
+```D:\VM_14.0.4>vagrant init ubuntu/trusty64 ```  [live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v1.JPG) 
 
-```D:\VM_14.0.4>vagrant up```  [live demo](https://github.com/vijju3335/Log-Activity/blob/master/images/v2.JPG)
+```D:\VM_14.0.4>vagrant up```  [live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v2.JPG)
 
-```\VM_14.04>vagrant ssh```  [live demo](https://github.com/vijju3335/Log-Activity/blob/master/images/v3.JPG)
+```\VM_14.04>vagrant ssh```  [live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v3.JPG)
 
 ```
 vagrant@vagrant-ubuntu-trusty-64:~$ cd /vagrant
 vagrant@vagrant-ubuntu-trusty-64:/vagrant$
 ```
-[live demo](https://github.com/vijju3335/Log-Activity/blob/master/images/v4.png)
+[live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v4.png)
 
 ```
 vagrant@vagrant-ubuntu-trusty-64:/vagrant$ ls -a
@@ -144,7 +140,7 @@ vagrant=#
 ```
 - Now Download the project database [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip).
 
-- Unzip the data to get the **newsdata.sql** file.Put the newsdata.sql file into the **vagrant directory** [live demo](https://github.com/vijju3335/Log-Activity/blob/master/images/v5.JPG).
+- Unzip the data to get the **newsdata.sql** file.Put the newsdata.sql file into the **vagrant directory** [live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v5.JPG).
 
 - In project, we have to create database named **news** :
 ```
@@ -196,8 +192,8 @@ These files configure the virtual machine and install all the tools needed to ru
 
 
 ## Running Documents Locally
-- keep .py files and sql files into [vagrant directory](https://github.com/vijju3335/Log-Activity/blob/master/images/v6.JPG)
-- use below [commmands](https://github.com/vijju3335/Log-Activity/blob/master/images/v7.JPG)
+- keep .py files and sql files into [vagrant directory](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v6.JPG)
+- use below [commmands](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v7.JPG)
 ```
 vagrant@vagrant-ubuntu-trusty-64:/vagrant$ python fileName.py
 ```
@@ -214,4 +210,4 @@ vagrant@vagrant-ubuntu-trusty-64:/vagrant$ python fileName.py
 ---
 
 ## Bug And Feature Requests
-- Have a bug or a feature request? Please feel free to open an [issue](https://github.com/vijju3335/Log-Activity/issues).
+- Have a bug or a feature request? Please feel free to open an [issue](https://github.com/vijju3335/LogsAnalysis/issues).
