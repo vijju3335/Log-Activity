@@ -183,6 +183,17 @@ vagrant@vagrant-ubuntu-trusty-64:/vagrant$
 - we can use **views**, is optional.
 - Run the [python file](#running-documents-locally).
 
+##### Note: 
+- To stop vagrant virtual box , 
+```
+vagrant@vagrant-ubuntu-trusty-64:~$
+vagrant@vagrant-ubuntu-trusty-64:~$ exit
+logout
+Connection to 127.0.0.1 closed.
+
+D:\VM_14.0.4>
+```
+
 #### Vagrant
 - Download the vagrant setup file for **windows** [Vagrant.exe](https://www.vagrantup.com/downloads.html).
 These files configure the virtual machine and install all the tools needed to run this project.
