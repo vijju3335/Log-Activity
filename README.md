@@ -179,8 +179,8 @@ vagrant@vagrant-ubuntu-trusty-64:/vagrant$
 - To connect data-base use this line, **psycopg2.connect(dbname='news', user='vagrant', host='localhost', port='5432', password='vagrant')**
 
 - Now continue writing [Queries](#queries-needed) to Questions.
-- we have use **joins, views, select, where clauses** concept to fetch data from DB.
-
+- we have use **joins, select, where clauses** concept to fetch data from DB.
+- we can use **views**, is optional.
 - Run the [python file](#running-documents-locally).
 
 #### Vagrant
@@ -192,8 +192,8 @@ These files configure the virtual machine and install all the tools needed to ru
 
 
 ## Running Documents Locally
-- keep .py files and sql files into [vagrant directory](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v6.JPG)
-- use below [commmands](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v7.JPG)
+- keep .py files and sql files into [vagrant directory](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v6.JPG).
+- use below [commmands](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v7.JPG).
 ```
 vagrant@vagrant-ubuntu-trusty-64:/vagrant$ python fileName.py
 ```
@@ -201,11 +201,11 @@ see [Output](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v7.JPG
 
 ## References
 
-- youtube for installation
-- stack overflow to errors retriving
+- youtube for installation.
+- stack overflow to errors retriving.
 - [python documentaion](https://docs.python.org/2/index.html)
-- [postgresql documentation](https://www.postgresql.org/docs/9.6/static/index.html)
-- [psycopg2 documentation](http://initd.org/psycopg/docs/)
+- [postgresql documentation](https://www.postgresql.org/docs/9.6/static/index.html).
+- [psycopg2 documentation](http://initd.org/psycopg/docs/).
 - [views](http://www.postgresqltutorial.com/postgresql-views/) concepts.
 
 ---
