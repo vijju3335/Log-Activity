@@ -218,6 +218,7 @@ see [Output](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v7.JPG
 - [postgresql documentation](https://www.postgresql.org/docs/9.6/static/index.html).
 - [psycopg2 documentation](http://initd.org/psycopg/docs/).
 - [views](http://www.postgresqltutorial.com/postgresql-views/) concepts.
+- [python floating format](https://cs.nyu.edu/courses/spring12/CSCI-UA.0002-007/Basic%20Formatting%20in%20Python.pdf)
 
 ---
 
