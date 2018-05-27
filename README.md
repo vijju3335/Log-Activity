@@ -1,5 +1,6 @@
 ## Logs Analysis Project
-Udacity Full Stack Nano Degree Project #3 
+Udacity Full Stack Nano Degree Project #3
+
 The third project of the [Udacity Full Stack Web Developer Nanodegree Program](https://in.udacity.com/course/full-stack-web-developer-nanodegree--nd004) called "Build a Logs Analysis".
 
 ## Project Overview
@@ -12,9 +13,10 @@ using the psycopg2 module to connect to the database.**
 
 - [Demo](#demo)
 - [Download](#download)
-- [Specifications](#specifications)
+- [Queries Needed](#queries-needed)
 - [Software Requirements](#software-requirements)
 - [Installation](#installation)
+- [Views](#views)
 - [Running Documents Locally](#running-documents-locally)
 - [References](#references)
 - [Bug And Feature Requests](#bug-and-feature-requests)
@@ -32,78 +34,50 @@ Within the download you'll find the following directories and files:
 ```
 LogsAnalysis-master.zip/
 |
-└── LogActivity.py
+└── reportingTool.py
 |
 └── images
 |     |
-|     └── v1.pjg
-|     |
-|     └── v2.jpg
-|     |
-|     └── v3.jpg
-|     |
-|     └── .....
+|     └── sql.jpg
+|     └── Report.jpg
 |
 └── README.md
 ```
-### Specifications
 
-- our Project must and should meet these [specifications](https://review.udacity.com/#!/rubrics/277/view)
+## Queries Needed
 
-### Queries Needed
 The reporting tool needed to answer the following questions:
 1. **What are the most popular three articles of all time?**
  Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
+ 
 2. **Who are the most popular article authors of all time?**
  That is, when you sum up all of the articles each author has written, which authors get the most page views? Present this as a sorted    list with the most popular author at the top.
+ 
 3. **On which days did more than 1% of requests lead to errors?**
 The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser.?
 
-### Software Requirements
+## Software Requirements
 
-This project should run on a virutal machine created using Vagrant, ToDo this, follow these steps:
-- Vagrant
-- Virtual Box
-- Python, Psycopg2, Postgresql
+This project should run on a **Virutal Machine created using Vagrant**, you can get from below.
+
+- [Vagrant Virtual-Machine](https://github.com/vijju3335/Vagrant-Installation).
 
 ## Installation
-- Install [Vagrant](#vagrant)
-- Install [Virtual Box](#virtual-box)
+- we need DataBase to store data.To organise, Here we use postgresql.
 
-- First go to disk D and create folder VM_14.04
-- open command prompt at VM_14.04 folder 
+-To install **postgresql** use below commands :
 
-```D:\VM_14.0.4>```
+```vagrant@vagrant:/vagrant$ sudo apt-get update```
 
-- There are different vagrant-boxes [here](https://app.vagrantup.com/boxes/search)
+```vagrant@vagrant:/vagrant$ sudo apt-get install postgresql```
 
-```D:\VM_14.0.4>vagrant init ubuntu/trusty64 ```  [live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v1.JPG) 
+- To do this project, user of postgresql must be **vagrant** but by default user is **postgres**. First we have to create vagrant user and database named vagrant.To do this use below commands,
 
-```D:\VM_14.0.4>vagrant up```  [live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v2.JPG)
-
-```\VM_14.04>vagrant ssh```  [live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v3.JPG)
+But if you installed by downloading [here](#download) you need to Skip,Before this use command  ```vagrant@vagrant:/vagrant$ psql``` then press [continue](#data-base-setup).
 
 ```
-vagrant@vagrant-ubuntu-trusty-64:~$ cd /vagrant
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$
-```
-[live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v4.png)
-
-```
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$ ls -a
-.  ..  .vagrant  Vagrantfile
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$ 
-```
-- we need data base to store data.here we use postgresql.To install **postgresql** use these commands :
-
-```vagrant@vagrant-ubuntu-trusty-64:/vagrant$ sudo apt-get update```
-
-```vagrant@vagrant-ubuntu-trusty-64:/vagrant$ sudo apt-get install postgresql```
-
-- To do this project, user of postgresql must be **vagrant** but by default user is **postgres**. First we have to create vagrant user and database named vagrant. To do this :
-```
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$ sudo -i -u postgres
-postgres@vagrant-ubuntu-trusty-64:~$ psql
+vagrant@vagrant:/vagrant$ sudo -i -u postgres
+postgres@vagrant:~$ psql
 psql (9.3.22)
 Type "help" for help.
 
@@ -123,37 +97,39 @@ postgres=# \q
 ```
 - Later, logout from user postgres by command : 
 ```
-postgres@vagrant-ubuntu-trusty-64:~$ exit
+postgres@vagrant:~$ exit
 logout
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$
+vagrant@vagrant:/vagrant$
 ```
 - we have to create database vagrant under vagrant as owner,
+#### Switch to User Vargant
 ```
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$ sudo -i -u vagrant
-vagrant@vagrant-ubuntu-trusty-64:~$ createdb vagrant
-vagrant@vagrant-ubuntu-trusty-64:~$ 
-vagrant@vagrant-ubuntu-trusty-64:~$ psql
+vagrant@vagrant:/vagrant$ sudo -i -u vagrant
+vagrant@vagrant:~$ createdb vagrant
+vagrant@vagrant:~$ 
+vagrant@vagrant:~$ psql
 psql (9.3.22)
 Type "help" for help.
 
 vagrant=#
 ```
-- Now Download the project database [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip).
+#### Data Base Setup
+- Now Download the project DataBase [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip).
 
-- Unzip the data to get the **newsdata.sql** file.Put the newsdata.sql file into the **vagrant directory** [live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v5.JPG).
+- Unzip the data to get the **newsdata.sql** file.Put the newsdata.sql file into the **vagrant directory** [live demo]().
 
-- In project, we have to create database named **news** :
+- For this project, we have to create database named **news** :
 ```
 vagrant=#create database news;
 CREATE DATABASE
 vagrant=#
 vagrant=#\q
-vagrant@vagrant-ubuntu-trusty-64:~$ exit
+vagrant@vagrant:~$ exit
 logout
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$ ls -a
+vagrant@vagrant:/vagrant$ ls -a
 .  ..  newsdata  .vagrant  Vagrantfile
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$ cd newsdata
-vagrant@vagrant-ubuntu-trusty-64:/vagrant/newsdata$ psql -d news -f newsdata.sql
+vagrant@vagrant:/vagrant$
+vagrant@vagrant:/vagrant/newsdata$ psql -d news -f newsdata.sql
 ```
 - Above command creates 3 tables , use \c to switch DB and data will be fetched from newsdata.Tables are :
 ```
@@ -173,42 +149,94 @@ news=#
 - Now we have to write [Queries Needed](#queries-needed) using **python-psycopg2**.
 - To use python as Back End,we have to install **psycopg2** :
 ```
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$sudo apt-get install python-psycopg2
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$
+vagrant@vagrant:/vagrant$ sudo apt-get install python-psycopg2
+vagrant@vagrant:/vagrant$
 ```
 - To connect data-base use this line, **psycopg2.connect(dbname='news', user='vagrant', host='localhost', port='5432', password='vagrant')**
 
 - Now continue writing [Queries](#queries-needed) to Questions.
-- we have use **joins, select, where clauses** concept to fetch data from DB.
-- we can use **views**, is optional.
-- Run the [python file](#running-documents-locally).
+- we have use **joins, select, where, group by, order by clauses, views is optional** concept to fetch data from DB.
 
-##### Note: 
-- To stop vagrant virtual box , 
-```
-vagrant@vagrant-ubuntu-trusty-64:~$
-vagrant@vagrant-ubuntu-trusty-64:~$ exit
-logout
-Connection to 127.0.0.1 closed.
-
-D:\VM_14.0.4>
-```
-
-#### Vagrant
-- Download the vagrant setup file for **windows** [Vagrant.exe](https://www.vagrantup.com/downloads.html).
-These files configure the virtual machine and install all the tools needed to run this project.
-
-#### Virtual Box
-- Download the virtual box setup file for **windows** [VirtualBox.exe](https://download.virtualbox.org/virtualbox/5.2.12/VirtualBox-5.2.12-122591-Win.exe).
-
-
+## Views
+- we have already seen 3 tables for their schema, use this command,``` news=# \d table-name ```
+- In this project, i used following **views** also,Before Running python file,you have to create these views.
+     - log_slug
+     - authors_name
+     - log_fail
+     - log_total
+     
+     #### log_slug
+     - replace() is used to place value by other value, syntax **replace(columnName, replace which value, by which value)**
+     - Use below query to create VIEW log_slug,
+     
+     ```
+     CREATE VIEW log_slug as SELECT replace(path,'/article/','') as slug, count(*) as views
+     FROM log
+     WHERE path <> '/' AND status ='200 OK' GROUP BY path;
+     ```
+     ```
+                slug            | views
+     ---------------------------+--------
+      goats-eat-googles         |  84906
+      so-many-bears             |  84504
+      balloon-goons-doomed      |  84557
+      media-obsessed-with-bears |  84383
+      trouble-for-troubled      |  84810
+      candidate-is-jerk         | 338647
+      bears-love-berries        | 253801
+      bad-things-gone           | 170098
+     (8 rows)
+     ```
+     
+     #### authors_name
+     - Use below query to create VIEW authors_name,
+     
+     ```
+     CREATE VIEW authors_name as SELECT authors.name as name, articles.slug as slug
+     FROM authors INNER JOIN articles
+     ON articles.author=authors.id ORDER BY authors.id;
+     ```
+     ```
+               name          |           slug
+     ------------------------+---------------------------
+      Ursula La Multa        | so-many-bears
+      Ursula La Multa        | bears-love-berries
+      Ursula La Multa        | goats-eat-googles
+      Ursula La Multa        | media-obsessed-with-bears
+      Rudolf von Treppenwitz | trouble-for-troubled
+      Rudolf von Treppenwitz | candidate-is-jerk
+      Anonymous Contributor  | bad-things-gone
+      Markoff Chaney         | balloon-goons-doomed
+    (8 rows)
+     ```
+     
+     #### log_fail
+     - Use below query to create VIEW log_fail,
+     
+     ```
+     CREATE VIEW log_fail as SELECT Date(time), count(Date(time))
+     FROM log
+     WHERE status='404 NOT FOUND' GROUP BY Date(time) ORDER BY Date(time);
+     ```
+     
+     #### log_total
+     - Use below query to create VIEW log_total,
+     
+     ```
+     CREATE VIEW log_total as SELECT Date(time), count(Date(time)) 
+     FROM log
+     GROUP BY Date(time);
+     ```
+     
 ## Running Documents Locally
-- keep .py files and sql files into [vagrant directory](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v6.JPG).
-- use below [commmands](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v7.JPG).
+- keep .py files and sql files into [VM_Vagrant directory]().
+- use below command to run pyhton file.
 ```
-vagrant@vagrant-ubuntu-trusty-64:/vagrant$ python fileName.py
+vagrant@vagrant:/vagrant$ python reportingTool.py
 ```
-see [Output](https://github.com/vijju3335/LogsAnalysis/blob/master/images/v7.JPG)
+
+## Output
+see [Output]()
 
 ## References
 
