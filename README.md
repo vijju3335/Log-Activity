@@ -23,7 +23,7 @@ using the psycopg2 module to connect to the database.**
 
 ## Demo
 
-For a demo, check out [Live Demo](#).
+For a demo, check out [Live Demo](#https://github.com/vijju3335/LogsAnalysis/blob/master/images/report.JPG).
 ## Download
 The files for the project, [download](https://github.com/vijju3335/LogsAnalysis/archive/master.zip).
 
@@ -39,7 +39,7 @@ LogsAnalysis-master.zip/
 └── images
 |     |
 |     └── sql.jpg
-|     └── Report.jpg
+|     └── report.jpg
 |
 └── README.md
 ```
@@ -116,7 +116,7 @@ vagrant=#
 #### Data Base Setup
 - Now Download the project DataBase [newsdata.sql](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip).
 
-- Unzip the data to get the **newsdata.sql** file.Put the newsdata.sql file into the **vagrant directory** [live demo]().
+- Unzip the data to get the **newsdata.sql** file.Put the newsdata.sql file into the **vagrant directory** [live demo](https://github.com/vijju3335/LogsAnalysis/blob/master/images/sql.JPG).
 
 - For this project, we have to create database named **news** :
 ```
@@ -166,7 +166,7 @@ vagrant@vagrant:/vagrant$
      - log_total
      
      #### log_slug
-     - replace() is used to place value by other value, syntax **replace(columnName, replace which value, by which value)**
+     - replace() is used to place value by other value, syntax **replace(columnName, replace which value, by which value)**.
      - Use below query to create VIEW log_slug,
      
      ```
@@ -174,6 +174,7 @@ vagrant@vagrant:/vagrant$
      FROM log
      WHERE path <> '/' AND status ='200 OK' GROUP BY path;
      ```
+     - This view contains **log-path that has replaced such a way to get slug** as **slug** and their **count** as **views**.
      ```
                 slug            | views
      ---------------------------+--------
@@ -196,6 +197,7 @@ vagrant@vagrant:/vagrant$
      FROM authors INNER JOIN articles
      ON articles.author=authors.id ORDER BY authors.id;
      ```
+     - This contains **author-name** as **name** and **articles-slug** as **slug**.
      ```
                name          |           slug
      ------------------------+---------------------------
@@ -218,6 +220,7 @@ vagrant@vagrant:/vagrant$
      FROM log
      WHERE status='404 NOT FOUND' GROUP BY Date(time) ORDER BY Date(time);
      ```
+     - This view contains **no.of failed logs**  and their **date**.
      ```
         date    | count
     ------------+-------
@@ -263,6 +266,7 @@ vagrant@vagrant:/vagrant$
      FROM log
      GROUP BY Date(time);
      ```
+     - This view contains **total no.of logs**  and their **date**.
      ```
         date    | count
     ------------+-------
@@ -301,14 +305,14 @@ vagrant@vagrant:/vagrant$
      ```
      
 ## Running Documents Locally
-- keep .py files and sql files into [VM_Vagrant directory]().
+- keep .py files and sql files into [VM_Vagrant directory](https://github.com/vijju3335/LogsAnalysis/blob/master/images/sql.JPG).
 - use below command to run pyhton file.
 ```
 vagrant@vagrant:/vagrant$ python reportingTool.py
 ```
 
 ## Output
-see [Output]()
+see [Output](https://github.com/vijju3335/LogsAnalysis/blob/master/images/report.JPG)
 
 ## References
 
