@@ -17,9 +17,9 @@ except Exception as e:
 
 def report_most_popular_articles():
     # we get the most popular three articles of all time
-    ''' create VIEW log_slug as select replace(path,'/article/','') as slug,
-    count(*) as views from log
-    where path<>'/' and status ='200 OK' group by path;'''
+    ''' CREATE VIEW log_slug as SELECT replace(path,'/article/','') as slug, count(*) as views
+     FROM log
+     WHERE path <> '/' AND status ='200 OK' GROUP BY path;'''
     psql = ''' select title, views from log_slug INNER JOIN articles on
     articles.slug = log_slug.slug order by views desc limit 3; '''
     cur.execute(psql)
@@ -33,13 +33,15 @@ def report_most_popular_articles():
 def report_most_popular_authors():
     # Prints most popular article authors of all time
     '''
-    create VIEW authors_name as select authors.name as name,
-    articles.slug as slug from authors join articles on
-    articles.author=authors.id order by authors.id;
+    CREATE VIEW authors_name as SELECT authors.name as name,
+    articles.slug as slug
+    FROM authors INNER JOIN articles
+    ON articles.author=authors.id ORDER BY authors.id;
 
-    create VIEW log_slug as select replace(path,'/article/','') as slug,
-    count(*) as views from log where path<>'/' and
-    status ='200 OK' group by path;
+    CREATE VIEW log_slug as SELECT replace(path,'/article/','') as slug,
+    count(*) as views
+    FROM log
+    WHERE path<>'/' AND status ='200 OK' GROUP BY path;
     '''
     psql = '''
     select authors_name.name as author,
@@ -58,12 +60,11 @@ def report_most_popular_authors():
 def report_log_error_percentage():
     # Prints Log errors percentage more than 1%
     '''
-    create view log_fail as select Date(time),
-    count(Date(time)) from log where status='404 NOT FOUND'
-    group by Date(time) order by Date(time);
+    CREATE VIEW log_fail as SELECT Date(time), count(Date(time))
+    FROM log
+    WHERE status='404 NOT FOUND' GROUP BY Date(time) ORDER BY Date(time);
 
-    create view log_total as select Date(time),
-    count(Date(time)) from log group by Date(time);
+    
     '''
     psql = '''
     select log_fail.date ,(log_fail.count*100.00 / log_total.count) as
