@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 import psycopg2
 
-# Below lines helps us Connect to the PostgreSQL DB if not, rasies exception
+''' Below lines helps us Connect to the PostgreSQL DB
+    if not, rasies exception'''
 connector = psycopg2.connect(
         dbname='news',
         user='vagrant',
@@ -11,15 +12,24 @@ connector = psycopg2.connect(
         )
 cur = connector.cursor()
 
+''' YOU SHOULD IMPORT views.sql and newsdata.sql USING
+    COMMAND
+
+    psql -d databasename -f filename.sql
+'''
+
 
 def report_log_error_percentage():
-    # Prints Log errors percentage more than 1%
     '''
-    CREATE VIEW log_fail as SELECT Date(time), count(Date(time))
-    FROM log
-    WHERE status='404 NOT FOUND' GROUP BY Date(time) ORDER BY Date(time);
+    Prints Log errors percentage more than 1%
 
+    For this report i used two views,
 
+    log_total, this view contains total no.of logs(success + fail)
+        as count  and their dates as date.
+
+    log_fail, this view contains no.of failed logs
+        as count and their dates as date.
     '''
     psql = '''
     SELECT log_fail.date ,(log_fail.count*100.00 / log_total.count) AS
@@ -30,7 +40,7 @@ def report_log_error_percentage():
     '''
     cur.execute(psql)
     reported = cur.fetchall()
-    # Prints report
+    '''Prints report'''
     print(" \n  3. Days on which more than 1% of requests lead to errors ? ")
     for report in reported:
         print(
@@ -41,17 +51,16 @@ def report_log_error_percentage():
 
 
 def report_most_popular_authors():
-    # Prints most popular article authors of all time
     '''
-    CREATE VIEW authors_name as SELECT authors.name as name,
-    articles.slug as slug
-    FROM authors INNER JOIN articles
-    ON articles.author=authors.id ORDER BY authors.id;
+    Prints most popular article authors of all time
 
-    CREATE VIEW log_slug as SELECT replace(path,'/article/','') as slug,
-    count(*) as views
-    FROM log
-    WHERE path<>'/' AND status ='200 OK' GROUP BY path;
+    For this report i used two views,
+
+    log_slug, this view contains  log-path that has replaced
+        such a way to get slug as slug and their count as views.
+
+    authors_name, this view contains
+        author-name as name and articles-slug as slug.
     '''
     psql = '''
     SELECT authors_name.name AS author,
@@ -61,24 +70,26 @@ def report_most_popular_authors():
     '''
     cur.execute(psql)
     reported = cur.fetchall()
-    # Prints report
+    ''' Prints report'''
     print("\n  2. Who are the most popular article authors of all time ? \n")
     for report in reported:
         print('  "{0}"   ===>   {1} views'.format(report[0], report[1]))
 
 
 def report_most_popular_articles():
-    # we get the most popular three articles of all time
     '''
-    CREATE VIEW log_slug as SELECT replace(path,'/article/','') AS slug,
-    count(*) AS views FROM log
-    WHERE path <> '/' AND status ='200 OK' GROUP BY path;
+    we get the most popular three articles of all time
+
+    For this report i used a view,
+
+    log_slug, this view contains  log-path that has replaced
+        such a way to get slug as slug and their count as views.
     '''
     psql = ''' SELECT title, views FROM log_slug INNER JOIN articles ON
     articles.slug = log_slug.slug ORDER BY views desc LIMIT 3; '''
     cur.execute(psql)
     res = cur.fetchall()
-    # Prints report
+    ''' Prints report'''
     print(" \n  1. What are the most popular three articles of all time ? \n")
     for report in res:
         print('  "{0}"   ===>   {1} views'.format(report[0], report[1]))
