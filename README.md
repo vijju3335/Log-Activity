@@ -164,7 +164,10 @@ vagrant@vagrant:/vagrant$
      - authors_name
      - log_fail
      - log_total
-     
+- You can directly import all views from views.sql file already attached in this repository, by using this command,
+
+```vagrant@vagrant:/vagrant$ psql -d news -f views.sql``` [see here](https://github.com/vijju3335/LogsAnalysis/blob/master/images/views.JPG)
+
      #### log_slug
      - replace() is used to place value by other value, syntax **replace(columnName, replace which value, by which value)**.
      - Use below query to create VIEW log_slug,
