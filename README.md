@@ -39,7 +39,10 @@ LogsAnalysis-master.zip/
 └── images
 |     |
 |     └── sql.jpg
+|     └── views.jpg
 |     └── report.jpg
+|
+└── views.sql
 |
 └── README.md
 ```
